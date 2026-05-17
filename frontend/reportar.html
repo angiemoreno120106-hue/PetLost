@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportar Mascota | PetLost</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/feed.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="brand-box">
+                <img src="assets/logo.png" alt="PetLost" class="logo-img">
+                <div class="brand-text">
+                    <h1 class="brand-title">PetLost</h1>
+                    <p class="brand-slogan">BUSCA • CONECTA • REENCUENTRA</p>
+                </div>
+            </div>
+
+            <div class="mission-box">
+                <div class="line-yellow"></div>
+                <p class="mission-text">Ayudamos a unir familias</p>
+                <div class="line-yellow"></div>
+            </div>
+
+            <div class="nav-auth">
+                <a href="feed.html" style="text-decoration: none; color: inherit; font-weight: 700; margin-right: 20px;">VOLVER</a>
+                <div class="user-menu-container" onclick="window.location.href='perfil.html'" style="cursor:pointer; display:flex; align-items:center; gap:8px;">
+
+    <div class="user-profile-icon">
+        <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+            <path d="M20 19C20 17.3431 16.4183 16 12 16C7.58172 16 4 17.3431 4 19"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+    </div>
+
+    <span class="user-label">Mi Perfil</span>
+
+</div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="filter-section" style="padding-top: 50px;">
+        <div class="filter-card" style="flex-direction: column; align-items: stretch; max-width: 600px; width: 100%; gap: 20px;">
+            
+            <div style="text-align: center; margin-bottom: 10px;">
+                <h2 style="color: var(--azul-oscuro); font-weight: 800; font-size: 1.8rem; margin: 0;">Nuevo Reporte</h2>
+                <div style="width: 50px; height: 4px; background: var(--verde-pet); margin: 10px auto; border-radius: 10px;"></div>
+            </div>
+
+            <form action="#" style="display: flex; flex-direction: column; gap: 15px;">
+                
+                <div class="filter-item">
+                    <label>Título del Reporte</label>
+                    <input type="text" placeholder="Ej: Se busca perrito blanco" style="padding: 12px; border: 2px solid #e2e8f0; border-radius: 15px; font-family: 'Poppins';">
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="filter-item">
+                        <label>Estado</label>
+                        <select>
+                            <option value="perdida">Perdida</option>
+                            <option value="encontrada">Encontrada</option>
+                        </select>
+                    </div>
+                    <div class="filter-item">
+                        <label>Tipo de Mascota</label>
+                        <select>
+                            <option value="perro">🐕 Perro</option>
+                            <option value="gato">🐱 Gato</option>
+                            <option value="otro">🐾 Otro</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="filter-item">
+                        <label>Color Dominante</label>
+                        <select>
+                            <option value="blanco">Blanco</option>
+                            <option value="negro">Negro</option>
+                            <option value="cafe">Café</option>
+                            <option value="manchado">Manchado</option>
+                        </select>
+                    </div>
+                    <div class="filter-item">
+                        <label>Ubicación</label>
+                        <select>
+                            <option value="usaquen">Usaquén</option>
+                            <option value="suba">Suba</option>
+                            <option value="kennedy">Kennedy</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="filter-item">
+                    <label>Fotografía</label>
+                    <div style="border: 2px dashed #cbd5e1; border-radius: 20px; padding: 20px; text-align: center; background: #f8fafc; cursor: pointer;">
+                        <span style="font-size: 1.5rem;">📸</span>
+                        <p style="font-size: 0.8rem; color: #64748b; font-weight: 600; margin: 5px 0;">Subir foto</p>
+                    </div>
+                </div>
+
+                <div class="filter-item">
+                    <label>Descripción</label>
+                    <textarea rows="3" style="padding: 12px; border: 2px solid #e2e8f0; border-radius: 15px; font-family: 'Poppins'; resize: none;"></textarea>
+                </div>
+
+                <button type="submit" class="btn-card-details" style="background: var(--verde-pet); padding: 15px; font-size: 1rem;">
+                    PUBLICAR REPORTE
+                </button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,396 @@
+/* --- VARIABLES Y RESET --- */
+:root {
+    --azul-oscuro: #0D1B3D;
+    --verde-pet: #10B981;
+    --verde-claro: #6ED7B7;
+    --naranja: #FFC857;
+    --blanco: #ffffff;
+    --gris-fondo: #F2F4F7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--gris-fondo);
+}
+
+/* --- BARRA DE NAVEGACIÓN --- */
+.navbar {
+    background: var(--blanco);
+    padding: 15px 0;
+    border-bottom: 6px solid var(--verde-pet);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.brand-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-img {
+    height: 85px; /* Tamaño del logo visible */
+    width: auto;
+}
+
+.brand-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--azul-oscuro);
+    line-height: 0.9;
+}
+
+.brand-tagline {
+    font-size: 0.9rem;
+    color: var(--verde-pet);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- FRASE CREATIVA CENTRAL --- */
+.creative-phrase {
+    text-align: center;
+}
+
+.creative-phrase p {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--azul-oscuro);
+    font-style: italic;
+    background: linear-gradient(to right, var(--azul-oscuro), var(--verde-pet));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.decor-line {
+    width: 50px;
+    height: 3px;
+    background: var(--naranja);
+    border-radius: 10px;
+    margin: 4px auto;
+}
+
+/* --- BOTONES DE NAVEGACIÓN --- */
+.nav-auth {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.btn-login {
+    background: transparent;
+    border: 2px solid var(--azul-oscuro);
+    color: var(--azul-oscuro);
+}
+
+.btn-register {
+    background: var(--verde-pet);
+    border: none;
+    color: white;
+    box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
+}
+
+.btn-register:hover {
+    background: var(--azul-oscuro);
+    transform: translateY(-2px);
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    background: linear-gradient(rgba(13, 27, 61, 0.75), rgba(16, 185, 129, 0.55)), 
+                url('https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    padding: 120px 5% 160px;
+    text-align: center;
+    color: white;
+}
+
+.hero h2 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* --- GRID DE CARDS --- */
+.action-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 0 5% 80px;
+    margin-top: -80px; /* Superposición sobre el Hero */
+}
+
+.card {
+    background: var(--blanco);
+    width: 360px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    text-align: center;
+    transition: 0.4s ease;
+    border-top: 12px solid var(--verde-pet);
+}
+
+.card:hover {
+    transform: translateY(-15px);
+}
+
+.card-header {
+    height: 150px;
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+}
+
+.card-body {
+    padding: 35px;
+}
+
+.card-body h3 {
+    font-size: 1.4rem;
+    color: var(--azul-oscuro);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.card-body p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 25px;
+    height: 50px;
+}
+
+.btn-card {
+    width: 100%;
+    padding: 16px;
+    border-radius: 15px;
+    border: none;
+    font-weight: 800;
+    color: white;
+    background-color: var(--verde-pet);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Variaciones de color por Card */
+.card-orange { border-top-color: var(--naranja); }
+.card-orange .btn-card { background-color: var(--naranja); color: var(--azul-oscuro); }
+
+.card-cyan { border-top-color: var(--verde-claro); }
+.card-cyan .btn-card { background-color: var(--verde-claro); color: var(--azul-oscuro); }
+
+/* --- ESTILOS PARA LA VENTANA DE REGISTRO (MODAL) --- */
+.modal-overlay {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(13, 27, 61, 0.95), rgba(16, 185, 129, 0.95));
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px); /* Desenfoque elegante del fondo */
+}
+
+.modal-content {
+    background: white;
+    width: 850px;
+    max-width: 95%;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 35px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--azul-oscuro);
+    font-weight: bold;
+    z-index: 100;
+}
+
+.modal-body {
+    display: flex;
+    width: 100%;
+}
+
+.modal-info {
+    flex: 1;
+    background: linear-gradient(135deg, var(--azul-oscuro), var(--verde-pet));
+    color: white;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.modal-logo {
+    height: 90px;
+    background: white;
+    padding: 10px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.modal-form {
+    flex: 1.2;
+    padding: 50px;
+    background: white;
+}
+
+.modal-form h2 {
+    color: var(--azul-oscuro);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--azul-oscuro);
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #f0f0f0;
+    border-radius: 12px;
+    outline: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--verde-pet);
+}
+
+.terms-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 20px 0;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.terms-container a {
+    color: var(--verde-pet);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background: var(--verde-pet);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background: var(--azul-oscuro);
+    transform: translateY(-2px);
+}
+
+.switch-text {
+    margin-top: 20px;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.switch-text a {
+    color: var(--verde-pet);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* Ajuste para tablets/móviles */
+@media (max-width: 768px) {
+    .modal-info { display: none; }
+    .modal-content { width: 450px; }
+}
+
+/* --- ESTILOS EXTRA PARA EL LOGO EN LOGIN --- */
+.modal-header-logo {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Asegúrate de que .modal-content NO tenga un ancho pequeño fijo */
+.modal-content {
+    background: white;
+    width: 850px; /* Ancho igual para ambos */
+    max-width: 95%;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+}
+
+/* El resto del CSS se mantiene igual al que ya tenías para el Registro */

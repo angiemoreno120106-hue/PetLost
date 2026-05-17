@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetLost | Ayudamos a unir familias</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="brand-box">
+                <img src="assets/logo.png" alt="PetLost" class="logo-img">
+                <div class="brand-text">
+                    <h1 class="brand-title">PetLost</h1>
+                    <span class="brand-tagline">Busca • Conecta • Reencuentra</span>
+                </div>
+            </div>
+
+            <div class="creative-phrase">
+                <div class="decor-line"></div>
+                <p>Ayudamos a unir familias</p>
+                <div class="decor-line"></div>
+            </div>
+
+            <div class="nav-auth">
+                <button class="btn btn-login">Iniciar Sesión</button>
+                <button class="btn btn-register">Registrarse</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-overlay">
+            <h2>¿Perdiste a tu mejor amigo?</h2>
+            <p>Reporta o busca mascotas en tu zona usando nuestros filtros avanzados.</p>
+        </div>
+    </header>
+
+    <main class="action-grid">
+        <div class="card card-orange">
+            <div class="card-header">📢</div>
+            <div class="card-body">
+                <h3>REPORTAR EXTRAVÍO</h3>
+                <p>Crea un reporte con fotos y detalles para que todos te ayuden a buscar.</p>
+                <button class="btn-card">REPORTAR AHORA</button>
+            </div>
+        </div>
+
+        <div class="card card-green">
+            <div class="card-header">🔍</div>
+            <div class="card-body">
+                <h3>BUSCAR MASCOTAS</h3>
+                <p>Usa filtros por zona, tipo de mascota o color para localizar reportes activos.</p>
+                <button class="btn-card">VER REPORTES</button>
+            </div>
+        </div>
+
+        <div class="card card-cyan">
+            <div class="card-header">💬</div>
+            <div class="card-body">
+                <h3>CHAT EN VIVO</h3>
+                <p>Conéctate directamente con las personas que han visto a tu mascota.</p>
+                <button class="btn-card">ABRIR CHATS</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="modalRegistro" class="modal-overlay">
+    <div class="modal-content">
+        <button class="close-modal" id="closeBtn">&times;</button>
+        
+        <div class="modal-body">
+            <div class="modal-info">
+                <img src="assets/logo.png" alt="PetLost" class="modal-logo">
+                <h3>Únete a PetLost</h3>
+                <p>Ayudamos a unir familias. Crea tu reporte en segundos y recupera a tu mejor amigo.</p>
+            </div>
+
+            <div class="modal-form">
+                <h2>Crear Cuenta</h2>
+                <form id="formRegistro">
+
+<div class="input-group">
+<label>Nombre Completo</label>
+<input type="text" id="nombreRegistro" placeholder="Ej. Angie Moreno" required>
+</div>
+
+<div class="input-group">
+<label>Correo Electrónico</label>
+<input type="email" id="emailRegistro" placeholder="user@example.com" required>
+</div>
+
+<div class="input-group">
+<label>Teléfono</label>
+<input type="tel" id="telefonoRegistro" placeholder="300 123 4567" required>
+</div>
+
+<div class="input-group">
+<label>Contraseña</label>
+<input type="password" id="passwordRegistro" placeholder="********" required>
+</div>
+                    
+                    <div class="terms-container">
+    <input type="checkbox" id="checkTerms" required>
+    <label for="checkTerms">Acepto los <a href="terminos.html" target="_blank">términos y condiciones</a></label>
+</div>
+
+                    <button type="submit" class="btn-submit">REGISTRARSE</button>
+                </form>
+                <p class="switch-text">¿Ya tienes cuenta? <a href="#">Inicia sesión</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalLogin" class="modal-overlay">
+    <div class="modal-content">
+        <button class="close-modal" id="closeLoginBtn">&times;</button>
+        
+        <div class="modal-body">
+            <div class="modal-info">
+                <img src="assets/logo.png" alt="PetLost" class="modal-logo">
+                <h3>¡Hola de nuevo!</h3>
+                <p>Ingresa para revisar tus reportes y mensajes recientes.</p>
+            </div>
+
+            <div class="modal-form">
+                <h2>Iniciar Sesión</h2>
+                <form id="formLogin">
+                    <div class="input-group">
+                        <label>Correo Electrónico</label>
+                        <input type="email" id="emailLogin" placeholder="user@example.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Contraseña</label>
+                        <input type="password" id="passwordLogin" placeholder="********" required>
+                    </div>
+                    
+                    <div class="terms-container">
+    <input type="checkbox" id="checkTermsLogin" required>
+    <label for="checkTermsLogin">Acepto los <a href="terminos.html" target="_blank">términos y condiciones</a> para iniciar sesión.</label>
+</div>
+
+                    <div class="forgot-pass" style="margin-bottom: 20px; text-align: right;">
+                        <a href="#" style="font-size: 0.8rem; color: #666; text-decoration: none;">¿Olvidaste tu contraseña?</a>
+                    </div>
+
+                    <button type="submit" class="btn-submit">INGRESAR</button>
+                </form>
+                <p class="switch-text">¿No tienes cuenta? <a href="#" id="linkToRegister">Regístrate aquí</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Referencias de los Modales
+    const modalReg = document.getElementById('modalRegistro');
+    const modalLogin = document.getElementById('modalLogin');
+
+    // Botones de la Navbar
+    const btnAbrirReg = document.querySelector('.btn-register');
+    const btnAbrirLogin = document.querySelector('.btn-login');
+
+    // Botones de Cerrar (X)
+    const btnCerrarReg = document.getElementById('closeBtn');
+    const btnCerrarLogin = document.getElementById('closeLoginBtn');
+
+    // Funciones para Registro
+    btnAbrirReg.onclick = () => modalReg.style.display = 'flex';
+    btnCerrarReg.onclick = () => modalReg.style.display = 'none';
+
+    // Funciones para Login
+    btnAbrirLogin.onclick = () => modalLogin.style.display = 'flex';
+    btnCerrarLogin.onclick = () => modalLogin.style.display = 'none';
+
+    // Cerrar si hacen clic en el fondo degradado
+    window.onclick = (event) => {
+        if (event.target == modalReg) modalReg.style.display = 'none';
+        if (event.target == modalLogin) modalLogin.style.display = 'none';
+    }
+
+    // Enlace para pasar de Login a Registro rápidamente
+    document.getElementById('linkToRegister').onclick = (e) => {
+        e.preventDefault();
+        modalLogin.style.display = 'none';
+        modalReg.style.display = 'flex';
+    }
+
+    document.getElementById("formLogin").addEventListener("submit", async function(e){
+
+e.preventDefault()
+
+const email = document.getElementById("emailLogin").value
+const password = document.getElementById("passwordLogin").value
+
+const response = await fetch("http://localhost:8000/login",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body: JSON.stringify({
+email: email,
+password: password
+})
+})
+
+const data = await response.json()
+
+if(response.ok){
+alert(data.message)
+window.location.href = "feed.html"
+}else{
+alert(data.message)
+}
+
+})
+
+document.getElementById("formRegistro").addEventListener("submit", async function(e){
+
+e.preventDefault()
+
+const nombre = document.getElementById("nombreRegistro").value
+const email = document.getElementById("emailRegistro").value
+const telefono = document.getElementById("telefonoRegistro").value
+const password = document.getElementById("passwordRegistro").value
+
+const response = await fetch("http://localhost:8000/register",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body: JSON.stringify({
+nombre:nombre,
+email:email,
+telefono:telefono,
+password:password
+})
+})
+
+const data = await response.json()
+alert(data.message)
+
+})
+
+</script>
+
+</body>
+</html>

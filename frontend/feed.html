@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorar Mascotas | PetLost</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/feed.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="brand-box">
+                <img src="assets/logo.png" alt="PetLost" class="logo-img">
+                <div class="brand-text">
+                    <h1 class="brand-title">PetLost</h1>
+                    <p class="brand-slogan">BUSCA • CONECTA • REENCUENTRA</p>
+                </div>
+            </div>
+
+            <div class="mission-box">
+                <div class="line-yellow"></div>
+                <p class="mission-text">Ayudamos a unir familias</p>
+                <div class="line-yellow"></div>
+            </div>
+
+            <div class="nav-auth">
+                <button class="btn btn-report" onclick="window.location.href='reportar.html'">
++ REPORTAR MASCOTA
+</button>
+                <div class="user-menu-container" onclick="window.location.href='perfil.html'" style="cursor:pointer; display:flex; align-items:center; gap:8px;">
+    
+    <div class="user-profile-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+            <path d="M20 19C20 17.3431 16.4183 16 12 16C7.58172 16 4 17.3431 4 19" 
+            stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+    </div>
+
+    <span class="user-label">Mi Perfil</span>
+
+</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="filter-section">
+        <div class="filter-card">
+            <div class="filter-item">
+                <label>Tipo de Mascota</label>
+                <select id="pet_type">
+                    <option value="">Cualquiera</option>
+                    <option value="perro">Perro</option>
+                    <option value="gato">Gato</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+            <div class="filter-item">
+                <label>Color Dominante</label>
+                <select id="pet_color">
+                    <option value="">Cualquiera</option>
+                    <option value="blanco">Blanco</option>
+                    <option value="negro">Negro</option>
+                    <option value="cafe">Café / Marrón</option>
+                    <option value="gris">Gris</option>
+                    <option value="manchado">Manchado</option>
+                </select>
+            </div>
+            <div class="filter-item">
+                <label>Ubicación / Zona</label>
+                <select id="location">
+                    <option value="">Toda la ciudad</option>
+                    <option value="usaquen">Usaquén</option>
+                    <option value="suba">Suba</option>
+                    <option value="kennedy">Kennedy</option>
+                    <option value="chapinero">Chapinero</option>
+                </select>
+            </div>
+            <button class="btn-reset">Limpiar</button>
+        </div>
+    </div>
+
+    <main class="feed-container">
+        <div class="pet-card">
+            <div class="pet-img-container">
+                <span class="status-label perdido">PERDIDO</span>
+                <div class="placeholder-img">📷 Foto Mascota</div>
+            </div>
+            <div class="pet-card-content">
+                <h3>Sammy</h3>
+                <div class="pet-tags">
+                    <span>🐕 Perro</span>
+                    <span>🎨 Blanco</span>
+                </div>
+                <p class="pet-loc">📍 Usaquén</p>
+                <button class="btn-card-details" onclick="abrirModal()">VER DETALLES</button>
+            </div>
+        </div>
+
+        <div class="pet-card">
+            <div class="pet-img-container">
+                <span class="status-label encontrado">ENCONTRADO</span>
+                <div class="placeholder-img">📷 Foto Mascota</div>
+            </div>
+            <div class="pet-card-content">
+                <h3>Mascota encontrada</h3>
+                <div class="pet-tags">
+                    <span>🐱 Gato</span>
+                    <span>🎨 Manchado</span>
+                </div>
+                <p class="pet-loc">📍 Chapinero</p>
+                <button class="btn-card-details" onclick="abrirModal()">VER DETALLES</button>
+            </div>
+        </div>
+
+        <div class="pet-card">
+            <div class="pet-img-container">
+                <span class="status-label perdido">PERDIDO</span>
+                <div class="placeholder-img">📷 Foto Mascota</div>
+            </div>
+            <div class="pet-card-content">
+                <h3>Pizza</h3>
+                <div class="pet-tags">
+                    <span>🐕 Perro</span>
+                    <span>🎨 Negro/Blanco</span>
+                </div>
+                <p class="pet-loc">📍 Kennedy</p>
+                <button class="btn-card-details" onclick="abrirModal()">VER DETALLES</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="modalDetalle" class="modal-overlay">
+        <div class="modal-window">
+            <button class="btn-close-modal" onclick="cerrarModal()">&times;</button>
+
+            <div class="modal-content">
+                <div class="modal-img-side">
+                    <span class="status-badge status-perdida">Mascota Perdida</span>
+                    <div class="placeholder-detail-img">📷 Foto Mascota</div>
+                </div>
+
+                <div class="modal-info-side">
+                    <h2 class="pet-title">Se busca a Sammy</h2>
+                    
+                    <div class="info-grid">
+                        <div class="info-box">
+                            <span class="label">Tipo</span>
+                            <span class="value">🐕 Perro</span>
+                        </div>
+                        <div class="info-box">
+                            <span class="label">Color</span>
+                            <span class="value">🎨 Blanco</span>
+                        </div>
+                        <div class="info-box">
+                            <span class="label">Ubicación</span>
+                            <span class="value">📍 Usaquén</span>
+                        </div>
+                    </div>
+
+                    <div class="description-section">
+                        <h4>Descripción</h4>
+                        <p class="description-text">
+                            Es un perrito muy juguetón, tiene una mancha en la oreja derecha. 
+                            Se perdió cerca al parque principal. Por favor, si lo ven, contáctennos.
+                        </p>
+                    </div>
+
+                    <div class="modal-actions" style="display: flex; flex-direction: column; gap: 10px; align-items: center; margin-top: 20px;">
+    <a href="chat.html?id_reporte=123" class="btn-card-details" style="width: 100%;">
+        CONTACTAR DUEÑO
+    </a>
+    <p class="date-reported">Reportado: 23/04/2026</p>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function abrirModal() {
+            // Buscamos el elemento por su ID y le cambiamos el estilo a flex para que se vea
+            document.getElementById('modalDetalle').style.display = 'flex';
+        }
+
+        function cerrarModal() {
+            // Lo ocultamos de nuevo
+            document.getElementById('modalDetalle').style.display = 'none';
+        }
+
+        // Cierra el modal si haces clic fuera de la ventana blanca
+        window.onclick = function(event) {
+            let modal = document.getElementById('modalDetalle');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
