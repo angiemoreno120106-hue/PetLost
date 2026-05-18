@@ -1,7 +1,7 @@
-/* --- ESTILOS MEJORADOS PARA TÉRMINOS --- */
+
 .terms-wrapper {
     padding: 60px 20px;
-    background-color: #f8f9fa; /* Un gris muy suave de fondo */
+    background-color: #f8f9fa;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -17,7 +17,7 @@
 }
 
 .terms-header {
-    text-align: center; /* Los títulos se mantienen centrados */
+    text-align: center; 
     margin-bottom: 50px;
 }
 
@@ -36,18 +36,18 @@
     font-size: 0.9rem;
 }
 
-/* --- AQUÍ ESTÁ EL CAMBIO DE JUSTIFICADO --- */
+
 .terms-body p {
     color: #555;
     line-height: 1.8;
     margin-bottom: 15px;
     font-size: 1.05rem;
-    text-align: justify; /* Alineación justificada solo para descripciones */
+    text-align: justify; 
 }
 
 .terms-body ul {
     margin: 15px 0 20px 30px;
-    text-align: justify; /* Las listas también se alinean para mantener la armonía */
+    text-align: justify; 
 }
 
 .terms-body li {
@@ -56,13 +56,13 @@
     margin-bottom: 8px;
 }
 
-/* Los títulos de las secciones se mantienen a la izquierda para mejor lectura */
+
 .terms-body h2 {
     color: var(--azul-oscuro);
     font-size: 1.6rem;
     font-weight: 700;
     margin: 40px 0 15px 0;
-    border-left: 5px solid #ff8c00; /* Color naranja para resaltar */
+    border-left: 5px solid #ff8c00; 
     padding-left: 15px;
     text-align: left; 
 }
@@ -83,6 +83,6 @@
         font-size: 2rem;
     }
     .terms-body p {
-        text-align: left; /* En móviles el justificado a veces crea espacios raros */
+        text-align: left; 
     }
 }

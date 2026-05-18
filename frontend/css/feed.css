@@ -1,4 +1,4 @@
-/* --- ESTILOS DEL FEED MEJORADO --- */
+
 
 :root {
     --bg-gradient: linear-gradient(135deg, #eef2f3 0%, #8e9eab 100%);
@@ -6,7 +6,7 @@
 }
 
 body {
-    /* Fondo con color bonito (Azul-Verdoso Pastel), ni blanco ni oscuro */
+
     background: linear-gradient(135deg, #d4e9f7 0%, #b8e9cc 100%);
     background-attachment: fixed;
     min-height: 100vh;
@@ -14,7 +14,6 @@ body {
     margin: 0;
 }
 
-/* Header Ajustes */
 .nav-auth {
     display: flex;
     align-items: center;
@@ -32,7 +31,6 @@ body {
     cursor: pointer;
 }
 
-/* Contenedor de perfil con etiqueta */
 .user-menu-container {
     display: flex;
     flex-direction: column;
@@ -72,7 +70,6 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* Sección de Filtros */
 .filter-section {
     padding: 40px 20px;
     display: flex;
@@ -124,7 +121,6 @@ body {
     margin-bottom: 12px;
 }
 
-/* Feed Grid */
 .feed-container {
     max-width: 1200px;
     margin: 0 auto 60px auto;
@@ -234,7 +230,6 @@ body {
         gap: 15px;
     }
 }
-/* --- ESTILOS DE MARCA (IMAGEN) --- */
 
 .brand-text {
     display: flex;
@@ -245,7 +240,7 @@ body {
 .brand-title {
     font-size: 2.2rem;
     font-weight: 800;
-    color: #001a33; /* Azul muy oscuro de la imagen */
+    color: #001a33; 
     line-height: 0.9;
     margin: 0;
 }
@@ -253,12 +248,12 @@ body {
 .brand-slogan {
     font-size: 0.8rem;
     font-weight: 700;
-    color: #10b981; /* Verde esmeralda de la imagen */
+    color: #10b981; 
     letter-spacing: 1px;
     margin-top: 5px;
 }
 
-/* Caja de misión (Ayudamos a unir familias) */
+
 .mission-box {
     display: flex;
     flex-direction: column;
@@ -271,18 +266,18 @@ body {
     font-size: 1.1rem;
     font-weight: 700;
     font-style: italic;
-    color: #004d40; /* Verde oscuro */
+    color: #004d40;
     margin: 5px 0;
 }
 
 .line-yellow {
     width: 60px;
     height: 3px;
-    background-color: #ffcc00; /* Amarillo de la imagen */
+    background-color: #ffcc00;
     border-radius: 2px;
 }
 
-/* Ajuste de la Navbar para que todo quepa bien */
+
 .nav-container {
     display: flex;
     justify-content: space-between;
@@ -292,14 +287,14 @@ body {
     padding: 10px 20px;
 }
 
-/* Ocultar misión en pantallas muy pequeñas para que no se amontone */
+
 @media (max-width: 900px) {
     .mission-box {
         display: none;
     }
 }
 
-/* --- ESTILOS DEL MODAL (VENTANA EMERGENTE) --- */
+
 
 .modal-overlay {
     position: fixed;
@@ -307,9 +302,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 26, 51, 0.6); /* Azul oscuro transparente */
+    background: rgba(0, 26, 51, 0.6);
     backdrop-filter: blur(8px);
-    display: none; /* Oculto por defecto */
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 2000;
@@ -418,14 +413,13 @@ body {
     margin-top: 15px;
 }
 
-/* Responsive para celulares */
+
 @media (max-width: 768px) {
     .modal-content { flex-direction: column; }
     .modal-img-side { height: 200px; }
     .modal-window { max-height: 95vh; overflow-y: auto; }
 }
 
-/* Unificamos el estilo para botones y enlaces de contacto */
 .btn-card-details {
     background-color: var(--verde-pet);
     color: white;
@@ -436,14 +430,14 @@ body {
     font-weight: 700;
     font-size: 0.9rem;
     cursor: pointer;
-    text-decoration: none; /* Quitamos el subrayado del enlace */
-    display: inline-block; /* Importante para que el enlace acepte el padding */
+    text-decoration: none; 
+    display: inline-block; 
     text-align: center;
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .btn-card-details:hover {
-    background-color: #0d9488; /* Un verde un poco más oscuro */
+    background-color: #0d9488; 
     transform: translateY(-2px);
-    color: white; /* Aseguramos que el texto siga blanco */
+    color: white; 
 }
