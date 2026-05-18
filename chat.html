@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chat IA | PetLost</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+
+    <nav class="navbar">
+
+        <div class="nav-container">
+
+            
+            <div class="brand-box"
+                 onclick="window.location.href='feed.html'"
+                 style="
+                    cursor:pointer;
+                    display:flex;
+                    align-items:center;
+                    gap:16px;
+                 ">
+
+                <div style="
+                    width:72px;
+                    height:72px;
+                    background:linear-gradient(135deg,#10b981,#34d399);
+                    border-radius:22px;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    box-shadow:0 10px 25px rgba(16,185,129,0.28);
+                    border:4px solid rgba(255,255,255,0.95);
+                    position:relative;
+                    overflow:hidden;
+                ">
+
+                    <div style="
+                        position:absolute;
+                        width:100%;
+                        height:100%;
+                        background:rgba(255,255,255,0.08);
+                        transform:rotate(45deg);
+                        top:-30px;
+                        left:-30px;
+                    "></div>
+
+                    <img src="assets/logo.png"
+                         alt="PetLost"
+                         class="logo-img"
+                         style="
+                            width:46px;
+                            height:46px;
+                            object-fit:contain;
+                            position:relative;
+                            z-index:2;
+                            filter:drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+                         ">
+                </div>
+
+                <div class="brand-text">
+
+                    <h1 class="brand-title"
+                        style="
+                            font-size:2rem;
+                            margin:0;
+                            font-weight:800;
+                            letter-spacing:-1px;
+                            color:#0f172a;
+                            line-height:1;
+                        ">
+                        PetLost
+                    </h1>
+
+                    <p class="brand-slogan"
+                       style="
+                            margin-top:6px;
+                            font-size:0.82rem;
+                            font-weight:700;
+                            color:#10b981;
+                            letter-spacing:1.2px;
+                            text-transform:uppercase;
+                       ">
+                        Busca • Conecta • Reencuentra
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- TEXTO CENTRAL -->
+            <div class="mission-box">
+
+                <div class="line-yellow"></div>
+
+                <p class="mission-text">
+                    Asistente Inteligente Comunitario
+                </p>
+
+                <div class="line-yellow"></div>
+
+            </div>
+
+            <!-- PERFIL -->
+            <div class="nav-auth">
+
+                <a href="feed.html"
+                   style="
+                        text-decoration:none;
+                        color:inherit;
+                        font-weight:700;
+                        margin-right:20px;
+                   ">
+                    VOLVER AL FEED
+                </a>
+
+                <div class="user-menu-container"
+                     onclick="window.location.href='perfil.html'"
+                     style="
+                        cursor:pointer;
+                        display:flex;
+                        align-items:center;
+                        gap:10px;
+                     ">
+
+                    <div class="user-profile-icon"
+                         style="
+                            width:40px;
+                            height:40px;
+                            display:flex;
+                            align-items:center;
+                            justify-content:center;
+                            background:#10b981;
+                            color:white;
+                            border-radius:50%;
+                            box-shadow:0 5px 12px rgba(16,185,129,0.25);
+                         ">
+
+                        <svg viewBox="0 0 24 24"
+                             fill="none"
+                             style="width:20px;">
+
+                            <circle cx="12"
+                                    cy="8"
+                                    r="4"
+                                    stroke="currentColor"
+                                    stroke-width="2"/>
+
+                            <path d="M20 19C20 17.3431 16.4183 16 12 16C7.58172 16 4 17.3431 4 19"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round"/>
+                        </svg>
+
+                    </div>
+
+                    <span class="user-label"
+                          style="
+                                font-weight:700;
+                                font-size:0.9rem;
+                                color:#0f172a;
+                          ">
+                        Mi Perfil
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- CHAT -->
+    <main class="chat-main-container">
+
+        <div class="chat-card">
+
+            <!-- HEADER CHAT -->
+            <div class="chat-header">
+
+                <div class="chat-header-icon">
+                    🤖
+                </div>
+
+                <div>
+
+                    <h2>
+                        Chat IA PetLost
+                    </h2>
+
+                    <p>
+                        Describe mascotas vistas o consulta reportes activos.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- MENSAJES -->
+            <div id="chat-box" class="chat-box">
+
+                <div class="mensaje ia">
+
+                    <div class="bubble">
+
+                        👋 Hola. Soy el asistente inteligente de PetLost.
+
+                        <br><br>
+
+                        Puedes escribirme:
+
+                        <br><br>
+
+                        • “Vi un perro negro en Kennedy”
+                        <br>
+
+                        • “Encontré un gato blanco”
+                        <br>
+
+                        • “Busco una mascota en Suba”
+
+                        <br><br>
+
+                        Analizaré los reportes registrados y buscaré coincidencias.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- INPUT -->
+            <div class="chat-input-container">
+
+                <input
+                    type="text"
+                    id="mensaje-input"
+                    placeholder="Ej: Vi un perro blanco cerca de Suba..."
+                >
+
+                <button onclick="enviarMensaje()">
+                    ENVIAR
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script>
+
+        function analizarCoincidencias(mensaje){
+
+            const reportes =
+                JSON.parse(
+                    localStorage.getItem("reportesMascotas")
+                ) || [];
+
+            mensaje = mensaje.toLowerCase();
+
+            let coincidencias = [];
+
+            reportes.forEach(rep => {
+
+                if(
+                    mensaje.includes(rep.color.toLowerCase()) ||
+                    mensaje.includes(rep.ubicacion.toLowerCase()) ||
+                    mensaje.includes(rep.tipo.toLowerCase())
+                ){
+
+                    coincidencias.push(rep);
+                }
+
+            });
+
+            if(coincidencias.length === 0){
+
+                return `
+                    No encontré coincidencias exactas
+                    relacionadas con esa descripción.
+                `;
+            }
+
+            let respuesta =
+                `Coincidencias encontradas:<br><br>`;
+
+            coincidencias.forEach(rep => {
+
+                respuesta += `
+
+                    <div style="
+                        background:white;
+                        border:1px solid #e2e8f0;
+                        padding:16px;
+                        border-radius:18px;
+                        margin-bottom:14px;
+                        box-shadow:0 4px 12px rgba(15,23,42,0.04);
+                    ">
+
+                        <b style="
+                            color:#0f172a;
+                            font-size:1rem;
+                        ">
+                            ${rep.titulo}
+                        </b>
+
+                        <br><br>
+
+                        📍 Zona:
+                        ${rep.ubicacion}
+
+                        <br>
+
+                        🎨 Color:
+                        ${rep.color}
+
+                        <br>
+
+                        🐾 Tipo:
+                        ${rep.tipo}
+
+                        <br>
+
+                        📞 Contacto:
+                        ${rep.telefono || "No disponible"}
+
+                        <br>
+
+                        📅 Fecha:
+                        ${rep.fecha}
+
+                    </div>
+
+                `;
+            });
+
+            return respuesta;
+        }
+
+        function enviarMensaje(){
+
+            const input =
+                document.getElementById("mensaje-input");
+
+            const chatBox =
+                document.getElementById("chat-box");
+
+            const mensaje =
+                input.value.trim();
+
+            if(!mensaje){
+                return;
+            }
+
+            chatBox.innerHTML += `
+
+                <div class="mensaje usuario">
+
+                    <div class="bubble">
+                        ${mensaje}
+                    </div>
+
+                </div>
+
+            `;
+
+            chatBox.scrollTop =
+                chatBox.scrollHeight;
+
+            input.value = "";
+
+            setTimeout(() => {
+
+                const respuestaIA =
+                    analizarCoincidencias(mensaje);
+
+                chatBox.innerHTML += `
+
+                    <div class="mensaje ia">
+
+                        <div class="bubble">
+                            ${respuestaIA}
+                        </div>
+
+                    </div>
+
+                `;
+
+                chatBox.scrollTop =
+                    chatBox.scrollHeight;
+
+            }, 700);
+
+        }
+
+        document
+            .getElementById("mensaje-input")
+            .addEventListener("keypress", function(e){
+
+                if(e.key === "Enter"){
+                    enviarMensaje();
+                }
+
+            });
+
+    </script>
+
+</body>
+</html>
