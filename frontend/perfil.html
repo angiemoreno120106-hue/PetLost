@@ -12,7 +12,7 @@
 
     <nav class="navbar">
         <div class="nav-container">
-            <div class="brand-box">
+            <div class="brand-box" onclick="window.location.href='index.html'" style="cursor: pointer;">
                 <img src="assets/logo.png" alt="PetLost" class="logo-img">
                 <div class="brand-text">
                     <h1 class="brand-title">PetLost</h1>
@@ -27,153 +27,127 @@
             </div>
 
             <div class="nav-auth">
-                <a href="feed.html" style="text-decoration: none; color: var(--azul-oscuro); font-weight: 800; margin-right: 25px; font-size: 0.9rem;">
-                    ← VOLVER AL FEED
-                </a>
-                <div class="user-menu-container">
-                    <div class="user-profile-icon" style="background: var(--verde-pet); color: white;">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
-                            <path d="M20 19C20 17.3431 16.4183 16 12 16C7.58172 16 4 17.3431 4 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                </div>
+                <a href="feed.html" style="text-decoration: none; color: inherit; font-weight: 700; margin-right: 20px; font-size: 0.9rem;">VOLVER AL FEED</a>
+                <button class="btn-reportar" onclick="window.location.href='reportar.html'" style="background: #10b981; color: white; border: none; padding: 10px 18px; border-radius: 10px; font-weight: 700; cursor: pointer; font-size: 0.85rem;">
+                    + NUEVO REPORTE
+                </button>
             </div>
         </div>
     </nav>
 
-    <div class="main-content-profile" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1100px; margin: 40px auto; padding: 0 20px;">
-        
-        <section class="filter-card" style="flex-direction: column; align-items: stretch; padding: 35px; height: fit-content;">
-            <div style="text-align: center; margin-bottom: 25px;">
-                <div style="width: 80px; height: 80px; background: #f1f5f9; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; border: 3px solid var(--verde-pet);">👤</div>
-                <h2 style="color: var(--azul-oscuro); font-weight: 800; margin: 0;">Mis Datos</h2>
+    <div style="max-width: 1200px; margin: 30px auto; padding: 0 20px;">
+        <div style="background: white; padding: 30px; border-radius: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 25px; margin-bottom: 40px;">
+            <div style="width: 80px; height: 80px; background: #10b981; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                <svg viewBox="0 0 24 24" fill="none" style="width: 45px; color: white;">
+                    <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+                    <path d="M20 19C20 17.3431 16.4183 16 12 16C7.58172 16 4 17.3431 4 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div>
+                <h2 style="margin: 0; font-weight: 800; color: #1e293b;" id="perfil-nombre-usuario">Usuario Comunitario</h2>
+                <p style="margin: 5px 0 0; color: #64748b; font-size: 0.9rem;" id="perfil-id-usuario">ID: Cargando...</p>
+            </div>
+        </div>
+
+        <main class="feed-container" style="padding: 0;">
+            <div style="width: 100%; grid-column: 1 / -1; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                <div style="width: 6px; height: 25px; background: #10b981; border-radius: 10px;"></div>
+                <h3 style="font-weight: 800; margin: 0; font-size: 1.3rem; color: #1e293b;">Mascotas que he reportado</h3>
             </div>
 
-            <div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px; background: #f8fafc; padding: 20px; border-radius: 20px;">
-                <div>
-                    <label style="font-size: 0.7rem; font-weight: 800; color: #64748b; text-transform: uppercase;">Nombre</label>
-                    <p style="margin: 0; color: var(--azul-oscuro); font-weight: 600;">Angie Moreno</p>
+            <div id="mis-reportes-lista" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; width: 100%; grid-column: 1 / -1;">
                 </div>
-                <div>
-                    <label style="font-size: 0.7rem; font-weight: 800; color: #64748b; text-transform: uppercase;">Email</label>
-                    <p style="margin: 0; color: var(--azul-oscuro); font-weight: 600;">angie.moreno@usb.edu.co</p>
-                </div>
-                <div>
-                    <label style="font-size: 0.7rem; font-weight: 800; color: #64748b; text-transform: uppercase;">Teléfono</label>
-                    <p style="margin: 0; color: var(--azul-oscuro); font-weight: 600;">+57 300 000 0000</p>
-                </div>
-            </div>
-
-            <button class="btn-card-details" onclick="abrirModal()" style="background: var(--verde-pet); width: 100%; padding: 15px; font-size: 0.9rem;">
-    ACTUALIZAR PERFIL
-</button>
-            <button style="background: none; border: none; color: #b91c1c; font-weight: 700; margin-top: 15px; cursor: pointer;">Cerrar Sesión</button>
-        </section>
-
-        <section class="filter-card" style="flex-direction: column; align-items: stretch; padding: 35px; height: fit-content;">
-            <h3 style="color: var(--azul-oscuro); font-weight: 800; margin-top: 0; display: flex; align-items: center; gap: 10px;">
-                <span style="font-size: 1.2rem;">💬</span> Mensajes y Chats
-            </h3>
-            
-            <div class="chat-list" style="display: flex; flex-direction: column; gap: 10px; max-height: 300px; overflow-y: auto;">
-                <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #f0fff4; border: 1px solid #c6f6d5; border-radius: 15px; cursor: pointer;">
-                    <div style="width: 45px; height: 45px; background: #cbd5e1; border-radius: 10px; display: flex; align-items: center; justify-content: center;">🐕</div>
-                    <div style="flex: 1;">
-                        <h4 style="margin: 0; font-size: 0.9rem; color: var(--azul-oscuro);">Chat sobre: Sammy</h4>
-                        <p style="margin: 0; font-size: 0.75rem; color: #047857; font-weight: 600;">Nuevo mensaje: "Creo que lo vi..."</p>
-                    </div>
-                </div>
-
-                <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #f8fafc; border: 1px solid #edf2f7; border-radius: 15px; cursor: pointer;">
-                    <div style="width: 45px; height: 45px; background: #cbd5e1; border-radius: 10px; display: flex; align-items: center; justify-content: center;">🐕</div>
-                    <div style="flex: 1;">
-                        <h4 style="margin: 0; font-size: 0.9rem; color: var(--azul-oscuro);">Chat sobre: Pizza</h4>
-                        <p style="margin: 0; font-size: 0.75rem; color: #64748b;">No hay mensajes nuevos</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </main>
     </div>
 
-    <main class="feed-container" style="margin-top: 20px;">
-        <div style="width: 100%; grid-column: 1 / -1; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
-            <div style="width: 6px; height: 25px; background: var(--verde-pet); border-radius: 10px;"></div>
-            <h3 style="color: var(--azul-oscuro); font-weight: 800; margin: 0;">Mascotas que he reportado</h3>
-        </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          
+            if (!localStorage.getItem("userIdActual")) {
+                localStorage.setItem("userIdActual", "user_" + Math.random().toString(36).substr(2, 9));
+            }
 
-        <div class="pet-card">
-            <div class="pet-img-container">
-                <span class="status-label perdido">PERDIDO</span>
-                <div class="placeholder-img">📷 Foto Sammy</div>
-            </div>
-            <div class="pet-card-content">
-                <h3>Sammy</h3>
-                <div class="pet-tags"><span>🐕 Perro</span><span>🎨 Blanco</span></div>
-                <div style="display: flex; gap: 8px; margin-top: 15px;">
-                    <button class="btn-card-details" style="flex: 1; background: #e2e8f0; color: var(--azul-oscuro); border: none;">EDITAR</button>
-                    <button class="btn-card-details" style="flex: 1; background: #fee2e2; color: #dc2626; border: 1px solid #fecaca;">ELIMINAR</button>
-                </div>
-            </div>
-        </div>
-    </main>
+            mostrarDatosIdentidad();
+            renderizarMisReportes();
+        });
 
-    <div id="modalActualizar" class="modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 26, 51, 0.6); z-index: 1000; align-items: center; justify-content: center;">
-    
-    <div class="filter-card" style="max-width: 500px; width: 90%; flex-direction: column; align-items: stretch; padding: 40px; position: relative;">
-        
-        <button onclick="cerrarModal()" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #64748b;">&times;</button>
-
-        <div style="text-align: center; margin-bottom: 25px;">
-            <h2 style="color: var(--azul-oscuro); font-weight: 800; margin: 0;">Actualizar Perfil</h2>
-            <p style="font-size: 0.85rem; color: #64748b;">Modifica los datos de tu cuenta</p>
-        </div>
-
-        <form style="display: flex; flex-direction: column; gap: 15px;">
-            <div style="display: flex; flex-direction: column; gap: 5px;">
-                <label style="font-size: 0.75rem; font-weight: 800; color: var(--azul-oscuro); text-transform: uppercase;">Nombre Completo</label>
-                <input type="text" value="Angie Moreno" style="padding: 12px; border: 2px solid #edf2f7; border-radius: 15px; font-family: 'Poppins'; outline: none;">
-            </div>
-
-            <div style="display: flex; flex-direction: column; gap: 5px;">
-                <label style="font-size: 0.75rem; font-weight: 800; color: var(--azul-oscuro); text-transform: uppercase;">Email</label>
-                <input type="email" value="angie.moreno@usb.edu.co" style="padding: 12px; border: 2px solid #edf2f7; border-radius: 15px; font-family: 'Poppins'; outline: none;">
-            </div>
-
-            <div style="display: flex; flex-direction: column; gap: 5px;">
-                <label style="font-size: 0.75rem; font-weight: 800; color: var(--azul-oscuro); text-transform: uppercase;">Teléfono</label>
-                <input type="text" value="+57 300 000 0000" style="padding: 12px; border: 2px solid #edf2f7; border-radius: 15px; font-family: 'Poppins'; outline: none;">
-            </div>
-
-            <div style="display: flex; flex-direction: column; gap: 5px; margin-top: 10px; border-top: 1px solid #edf2f7; padding-top: 15px;">
-                <label style="font-size: 0.75rem; font-weight: 800; color: #b91c1c; text-transform: uppercase;">Nueva Contraseña (Opcional)</label>
-                <input type="password" placeholder="Mantenla vacía para no cambiarla" style="padding: 12px; border: 2px solid #edf2f7; border-radius: 15px; font-family: 'Poppins'; outline: none;">
-            </div>
-
-            <button type="submit" class="btn-card-details" style="background: var(--verde-pet); margin-top: 10px; padding: 15px; font-size: 1rem;">
-                GUARDAR CAMBIOS
-            </button>
-        </form>
-    </div>
-</div>
-
-<script>
-    function abrirModal() {
-        document.getElementById('modalActualizar').style.display = 'flex';
-    }
-
-    function cerrarModal() {
-        document.getElementById('modalActualizar').style.display = 'none';
-    }
-
-    // Cerramos el modal si el usuario hace clic fuera de la tarjeta
-    window.onclick = function(event) {
-        let modal = document.getElementById('modalActualizar');
-        if (event.target == modal) {
-            cerrarModal();
+        function mostrarDatosIdentidad() {
+            const miUsuarioId = localStorage.getItem("userIdActual");
+            document.getElementById("perfil-id-usuario").innerText = `ID de Cuenta: ${miUsuarioId}`;
         }
-    }
-</script>
 
+       
+        function renderizarMisReportes() {
+            const contenedor = document.getElementById("mis-reportes-lista");
+            const miUsuarioId = localStorage.getItem("userIdActual");
+
+            const todosLosReportes = JSON.parse(localStorage.getItem("reportesMascotas")) || [];
+
+         
+            const misReportes = todosLosReportes.filter(reporte => reporte.userId === miUsuarioId);
+
+         
+            if (misReportes.length === 0) {
+                contenedor.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 50px 20px; color: #64748b; background: white; border-radius: 20px; border: 2px dashed #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+                        <span style="font-size: 2.5rem;">🐾</span>
+                        <h3 style="margin: 10px 0 5px 0; font-weight: 800; color: #1e293b;">No tienes reportes creados</h3>
+                        <p style="margin: 0; font-size: 0.9rem; color: #94a3b8;">Las mascotas que reportes como perdidas o encontradas aparecerán organizadas en este panel.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            contenedor.innerHTML = "";
+            
+         
+            misReportes.reverse().forEach(reporte => {
+                const claseEstado = reporte.estado === "perdida" ? "perdido" : "encontrado";
+                
+                const tarjetaHTML = `
+                    <div class="pet-card" id="card-${reporte.id}">
+                        <div class="pet-img-container" style="height: 180px; position: relative; background: #f1f5f9; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                            <span class="status-label ${claseEstado}" style="position: absolute; top: 12px; left: 12px; font-size: 0.7rem; font-weight: bold; text-transform: uppercase;">${reporte.estado}</span>
+                            ${reporte.foto} 
+                        </div>
+                        <div class="pet-card-content" style="padding: 18px; display: flex; flex-direction: column;">
+                            <h3 style="margin: 0 0 10px 0; font-size: 1.15rem; color: #1e293b; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${reporte.titulo}</h3>
+                            <div class="pet-tags" style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px;">
+                                <span style="background: #f1f5f9; color: #475569; padding: 4px 8px; border-radius: 8px; font-size: 0.75rem; font-weight: 600;">📍 ${reporte.ubicacion}</span>
+                                <span style="background: #f1f5f9; color: #475569; padding: 4px 8px; border-radius: 8px; font-size: 0.75rem; font-weight: 600;">🎨 ${reporte.color}</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: #64748b; margin: 0 0 15px 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.4;">
+                                ${reporte.descripcion}
+                            </p>
+                            
+                            <div style="display: flex; gap: 10px; margin-top: auto; padding-top: 10px; border-top: 1px solid #f1f5f9;">
+                                <span style="font-size: 0.75rem; color: #94a3b8; align-self: center; font-weight: 600;">📅 ${reporte.fecha}</span>
+                                <button class="btn-card-details" style="margin-left: auto; background: #fee2e2; color: #dc2626; border: none; padding: 6px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 0.75rem; transition: background 0.2s;" onclick="eliminarReporte('${reporte.id}')">
+                                    ELIMINAR
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                contenedor.innerHTML += tarjetaHTML;
+            });
+        }
+
+      
+        function eliminarReporte(reporteId) {
+            if (confirm("¿Estás seguro de que deseas eliminar permanentemente este reporte de la plataforma?")) {
+                let todosLosReportes = JSON.parse(localStorage.getItem("reportesMascotas")) || [];
+                
+          
+                todosLosReportes = todosLosReportes.filter(reporte => reporte.id !== reporteId);
+      
+                localStorage.setItem("reportesMascotas", JSON.stringify(todosLosReportes));
+                
+          
+                renderizarMisReportes();
+                alert("El reporte ha sido retirado del tablón comunitario con éxito.");
+            }
+        }
+    </script>
 </body>
 </html>

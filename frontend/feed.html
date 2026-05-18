@@ -3,16 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explorar Mascotas | PetLost</title>
+    <title>Feed | PetLost</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/feed.css">
+    
+    <style>
+   
+        
+        
+        .feed-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+    
+        .pet-card {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pet-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+      
+        .pet-img-container {
+            position: relative;
+            width: 100%;
+            height: 200px; 
+            background: #cbd5e1; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+       
+        .pet-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block;
+        }
+
+      
+        .pet-card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .pet-card-content h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin: 0;
+        }
+
+        .pet-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .pet-tags span {
+            background: #f1f5f9;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #475569;
+        }
+
+    
+        .status-label {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 10;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .status-label.perdido {
+            background: #ef4444; /* Rojo */
+        }
+
+        .status-label.encontrado {
+            background: #10b981; /* Verde */
+        }
+
+        /* Botón Limpiar Reportes */
+        .btn-limpiar {
+            background: #ef4444; 
+            color: white; 
+            border: none; 
+            padding: 8px 14px; 
+            border-radius: 8px; 
+            font-weight: 600; 
+            cursor: pointer; 
+            font-size: 0.8rem;
+            transition: background 0.2s ease;
+        }
+
+        .btn-limpiar:hover {
+            background: #dc2626;
+        }
+
+      
+        #modal-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body>
 
     <nav class="navbar">
         <div class="nav-container">
-            <div class="brand-box">
+            <div class="brand-box" onclick="window.location.href='index.html'" style="cursor: pointer;">
                 <img src="assets/logo.png" alt="PetLost" class="logo-img">
                 <div class="brand-text">
                     <h1 class="brand-title">PetLost</h1>
@@ -27,179 +156,156 @@
             </div>
 
             <div class="nav-auth">
-                <button class="btn btn-report" onclick="window.location.href='reportar.html'">
-+ REPORTAR MASCOTA
-</button>
-                <div class="user-menu-container" onclick="window.location.href='perfil.html'" style="cursor:pointer; display:flex; align-items:center; gap:8px;">
-    
-    <div class="user-profile-icon">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
-            <path d="M20 19C20 17.3431 16.4183 16 12 16C7.58172 16 4 17.3431 4 19" 
-            stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-    </div>
-
-    <span class="user-label">Mi Perfil</span>
-
-</div>
+                <button class="btn-reportar" onclick="window.location.href='reportar.html'" style="background: #10b981; color: white; border: none; padding: 10px 18px; border-radius: 10px; font-weight: 700; margin-right: 15px; cursor: pointer; font-size: 0.85rem;">
+                    + NUEVO REPORTE
+                </button>
+                <div class="user-menu-container" onclick="window.location.href='perfil.html'" style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                    <div class="user-profile-icon" style="width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; background: #10b981; color: white; border-radius: 50%;">
+                        <svg viewBox="0 0 24 24" fill="none" style="width: 20px;">
+                            <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M20 19C20 17.3431 16.4183 16 12 16C7.58172 16 4 17.3431 4 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <span class="user-label" style="font-weight: 600; font-size: 0.9rem;">Mi Perfil</span>
                 </div>
             </div>
         </div>
     </nav>
 
-    <div class="filter-section">
-        <div class="filter-card">
-            <div class="filter-item">
-                <label>Tipo de Mascota</label>
-                <select id="pet_type">
-                    <option value="">Cualquiera</option>
-                    <option value="perro">Perro</option>
-                    <option value="gato">Gato</option>
-                    <option value="otro">Otro</option>
-                </select>
-            </div>
-            <div class="filter-item">
-                <label>Color Dominante</label>
-                <select id="pet_color">
-                    <option value="">Cualquiera</option>
-                    <option value="blanco">Blanco</option>
-                    <option value="negro">Negro</option>
-                    <option value="cafe">Café / Marrón</option>
-                    <option value="gris">Gris</option>
-                    <option value="manchado">Manchado</option>
-                </select>
-            </div>
-            <div class="filter-item">
-                <label>Ubicación / Zona</label>
-                <select id="location">
-                    <option value="">Toda la ciudad</option>
-                    <option value="usaquen">Usaquén</option>
-                    <option value="suba">Suba</option>
-                    <option value="kennedy">Kennedy</option>
-                    <option value="chapinero">Chapinero</option>
-                </select>
-            </div>
-            <button class="btn-reset">Limpiar</button>
+    <div style="max-width: 1200px; margin: 20px auto 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="width: 6px; height: 25px; background: #10b981; border-radius: 10px;"></div>
+            <h3 style="font-weight: 800; margin: 0; font-family: 'Poppins', sans-serif;">Mascotas Reportadas Recientemente</h3>
         </div>
+        <button class="btn-limpiar" onclick="limpiarTodosLosReportes()">🗑️ Limpiar Reportes</button>
     </div>
 
-    <main class="feed-container">
-        <div class="pet-card">
-            <div class="pet-img-container">
-                <span class="status-label perdido">PERDIDO</span>
-                <div class="placeholder-img">📷 Foto Mascota</div>
-            </div>
-            <div class="pet-card-content">
-                <h3>Sammy</h3>
-                <div class="pet-tags">
-                    <span>🐕 Perro</span>
-                    <span>🎨 Blanco</span>
+    <main class="feed-container" id="grid-reportes-comunitarios">
+        </main>
+
+    <div id="modalDetalles" class="modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 1000; padding: 20px;">
+        <div style="background: white; max-width: 500px; width: 100%; border-radius: 20px; overflow: hidden; position: relative; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);">
+            <button onclick="cerrarModalDetalles()" style="position: absolute; top: 15px; right: 15px; background: white; border: none; width: 35px; height: 35px; border-radius: 50%; font-size: 1.3rem; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); color: #64748b; z-index: 10;">&times;</button>
+            
+            <div id="modal-img-container" style="height: 250px; background: #cbd5e1; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
                 </div>
-                <p class="pet-loc">📍 Usaquén</p>
-                <button class="btn-card-details" onclick="abrirModal()">VER DETALLES</button>
-            </div>
-        </div>
-
-        <div class="pet-card">
-            <div class="pet-img-container">
-                <span class="status-label encontrado">ENCONTRADO</span>
-                <div class="placeholder-img">📷 Foto Mascota</div>
-            </div>
-            <div class="pet-card-content">
-                <h3>Mascota encontrada</h3>
-                <div class="pet-tags">
-                    <span>🐱 Gato</span>
-                    <span>🎨 Manchado</span>
-                </div>
-                <p class="pet-loc">📍 Chapinero</p>
-                <button class="btn-card-details" onclick="abrirModal()">VER DETALLES</button>
-            </div>
-        </div>
-
-        <div class="pet-card">
-            <div class="pet-img-container">
-                <span class="status-label perdido">PERDIDO</span>
-                <div class="placeholder-img">📷 Foto Mascota</div>
-            </div>
-            <div class="pet-card-content">
-                <h3>Pizza</h3>
-                <div class="pet-tags">
-                    <span>🐕 Perro</span>
-                    <span>🎨 Negro/Blanco</span>
-                </div>
-                <p class="pet-loc">📍 Kennedy</p>
-                <button class="btn-card-details" onclick="abrirModal()">VER DETALLES</button>
-            </div>
-        </div>
-    </main>
-
-    <div id="modalDetalle" class="modal-overlay">
-        <div class="modal-window">
-            <button class="btn-close-modal" onclick="cerrarModal()">&times;</button>
-
-            <div class="modal-content">
-                <div class="modal-img-side">
-                    <span class="status-badge status-perdida">Mascota Perdida</span>
-                    <div class="placeholder-detail-img">📷 Foto Mascota</div>
-                </div>
-
-                <div class="modal-info-side">
-                    <h2 class="pet-title">Se busca a Sammy</h2>
-                    
-                    <div class="info-grid">
-                        <div class="info-box">
-                            <span class="label">Tipo</span>
-                            <span class="value">🐕 Perro</span>
-                        </div>
-                        <div class="info-box">
-                            <span class="label">Color</span>
-                            <span class="value">🎨 Blanco</span>
-                        </div>
-                        <div class="info-box">
-                            <span class="label">Ubicación</span>
-                            <span class="value">📍 Usaquén</span>
-                        </div>
+            
+            <div style="padding: 25px;">
+                <span id="modal-estado-badge" style="display: inline-block; padding: 4px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; margin-bottom: 10px; color: white;"></span>
+                <h2 id="modal-titulo" style="margin: 0 0 15px 0; font-weight: 800; color: #1e293b;"></h2>
+                
+                <div id="modal-tags" style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px;">
                     </div>
 
-                    <div class="description-section">
-                        <h4>Descripción</h4>
-                        <p class="description-text">
-                            Es un perrito muy juguetón, tiene una mancha en la oreja derecha. 
-                            Se perdió cerca al parque principal. Por favor, si lo ven, contáctennos.
-                        </p>
-                    </div>
-
-                    <div class="modal-actions" style="display: flex; flex-direction: column; gap: 10px; align-items: center; margin-top: 20px;">
-    <a href="chat.html?id_reporte=123" class="btn-card-details" style="width: 100%;">
-        CONTACTAR DUEÑO
-    </a>
-    <p class="date-reported">Reportado: 23/04/2026</p>
-</div>
-                </div>
+                <h4 style="margin: 0 0 5px 0; color: #475569; font-weight: 700; font-size: 0.9rem;">Descripción:</h4>
+                <p id="modal-descripcion" style="margin: 0 0 25px 0; font-size: 0.9rem; color: #64748b; line-height: 1.5; background: #f8fafc; padding: 15px; border-radius: 12px; border: 1px solid #f1f5f9;"></p>
+                
+                <button id="modal-btn-contactar" style="width: 100%; background: #10b981; color: white; border: none; padding: 14px; border-radius: 12px; font-weight: bold; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    💬 CONTACTAR CON EL REPORTANTE
+                </button>
             </div>
         </div>
     </div>
 
     <script>
-        function abrirModal() {
-            // Buscamos el elemento por su ID y le cambiamos el estilo a flex para que se vea
-            document.getElementById('modalDetalle').style.display = 'flex';
+        document.addEventListener("DOMContentLoaded", () => {
+            cargarReportesFeed();
+        });
+
+        function cargarReportesFeed() {
+            const contenedor = document.getElementById("grid-reportes-comunitarios");
+            const todosLosReportes = JSON.parse(localStorage.getItem("reportesMascotas")) || [];
+
+            if (todosLosReportes.length === 0) {
+                contenedor.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 50px 20px; color: #64748b; background: #f8fafc; border-radius: 20px; border: 2px dashed #cbd5e1; width: 100%; max-width:100%;">
+                        <span style="font-size: 2.5rem;">📣</span>
+                        <h3 style="margin: 10px 0 5px; color: #1e293b;">No hay reportes activos</h3>
+                        <p style="margin: 0; font-size: 0.9rem; color: #94a3b8;">Sé el primero en reportar una mascota usando el botón de arriba.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            contenedor.innerHTML = "";
+            
+         
+            const reportesInvertidos = [...todosLosReportes].reverse();
+
+            reportesInvertidos.forEach((reporte, index) => {
+                const claseEstado = reporte.estado === "perdida" ? "perdido" : "encontrado";
+                const indiceOriginal = todosLosReportes.length - 1 - index;
+                
+         
+                const tarjetaHTML = `
+                    <div class="pet-card" style="cursor: pointer;" data-index="${indiceOriginal}" onclick="manejarClickTarjeta(this)">
+                        <div class="pet-img-container">
+                            <span class="status-label ${claseEstado}">${reporte.estado.toUpperCase()}</span>
+                            <img src="${reporte.foto}" alt="${reporte.titulo}">
+                        </div>
+                        <div class="pet-card-content">
+                            <h3>${reporte.titulo}</h3>
+                            <div class="pet-tags">
+                                <span>📍 ${reporte.ubicacion}</span>
+                                <span>🎨 ${reporte.color}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                contenedor.innerHTML += tarjetaHTML;
+            });
         }
 
-        function cerrarModal() {
-            // Lo ocultamos de nuevo
-            document.getElementById('modalDetalle').style.display = 'none';
-        }
-
-        // Cierra el modal si haces clic fuera de la ventana blanca
-        window.onclick = function(event) {
-            let modal = document.getElementById('modalDetalle');
-            if (event.target == modal) {
-                modal.style.display = "none";
+     
+        function limpiarTodosLosReportes() {
+            if (confirm("¿Estás seguro de que deseas eliminar todos los reportes de mascotas? Esta acción vaciará el feed por completo.")) {
+                localStorage.removeItem("reportesMascotas");
+                cargarReportesFeed(); 
             }
         }
-    </script>
 
+        function manejarClickTarjeta(elemento) {
+            const index = elemento.getAttribute("data-index");
+            const todosLosReportes = JSON.parse(localStorage.getItem("reportesMascotas")) || [];
+            if (todosLosReportes[index]) {
+                abrirDetallesMascota(todosLosReportes[index]);
+            }
+        }
+
+
+        function abrirDetallesMascota(reporte) {
+            // Formatear también la imagen interna del modal
+            document.getElementById("modal-img-container").innerHTML = `<img src="${reporte.foto}" alt="${reporte.titulo}">`;
+            document.getElementById("modal-titulo").innerText = reporte.titulo;
+            document.getElementById("modal-descripcion").innerText = reporte.descripcion;
+            
+            const badge = document.getElementById("modal-estado-badge");
+            badge.innerText = reporte.estado;
+            badge.style.background = reporte.estado === "perdida" ? "#dc2626" : "#10b981";
+
+            document.getElementById("modal-tags").innerHTML = `
+                <span style="background: #e2e8f0; padding: 4px 10px; border-radius: 8px; font-size: 0.75rem; font-weight: 600; color: #334155;">📍 Ubicación: ${reporte.ubicacion}</span>
+                <span style="background: #e2e8f0; padding: 4px 10px; border-radius: 8px; font-size: 0.75rem; font-weight: 600; color: #334155;">🎨 Color: ${reporte.color}</span>
+                <span style="background: #e2e8f0; padding: 4px 10px; border-radius: 8px; font-size: 0.75rem; font-weight: 600; color: #334155;">🐾 Tipo: ${reporte.tipo}</span>
+                <span style="background: #e2e8f0; padding: 4px 10px; border-radius: 8px; font-size: 0.75rem; font-weight: 600; color: #334155;">📅 Fecha: ${reporte.fecha}</span>
+            `;
+
+            document.getElementById("modal-btn-contactar").onclick = function() {
+                window.location.href = `chat.html?contexto=${encodeURIComponent("Chat sobre: " + reporte.titulo)}`;
+            };
+
+            document.getElementById("modalDetalles").style.display = "flex";
+        }
+
+        function cerrarModalDetalles() {
+            document.getElementById("modalDetalles").style.display = "none";
+        }
+
+        
+        window.onclick = function(event) {
+            const modal = document.getElementById("modalDetalles");
+            if (event.target == modal) { cerrarModalDetalles(); }
+        }
+    </script>
 </body>
 </html>
